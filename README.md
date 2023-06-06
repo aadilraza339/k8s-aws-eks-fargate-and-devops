@@ -129,14 +129,21 @@ Ideally, this pod should also direct traffic to the new pods, but it doesn't kno
 All of these problems can be solved by using a service
 ### What is service?
 
+This is an abstract way to expose an application running on a set of pods as a network service.
+Service in Kubernetes provides a consistent network endpoint for a group of pods, allowing for load balancing, service discovery, and seamless scaling and updates.
 
+### How does it discover the pods and know that it has to manage it?
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/6b65a65c-ae62-4de4-a468-dd2291ed9c6f)
+So when you define a service. You have to give a level selector, so you basically have to say, hey, manage any pods where the same level
+level app called Front End.
 
+Since this level matches, this service knows that, OK, I have to distribute the traffic to these.
+Also, this service keeps track of any new pod that comes up with this level and it automatically adds.
 
+### Now we create loadbalancer
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ba2a3c7a-ccf6-447a-b791-a06318de32cc)
 
-
-
-
-
+Before applying the load balancer, we need to ensure that the EKS cluster is up and running. To create a new EKS cluster with two nodes, follow these steps
 
 
 
