@@ -143,11 +143,32 @@ Also, this service keeps track of any new pod that comes up with this level and 
 ### Now we create loadbalancer
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ba2a3c7a-ccf6-447a-b791-a06318de32cc)
 
-Before applying the load balancer, we need to ensure that the EKS cluster is up and running. To create a new EKS cluster with two nodes, follow these steps
+Before applying the load balancer, we need to ensure that the EKS cluster is up and running. To create a new EKS cluster, follow these steps
 
+User this command to creare eks cluster.
+```
+eksctl create cluster --name aadil-test --node-type t2.micro --region ap-south-1
+```
+It will take some time to create...
 
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/40d16711-7d11-4ac3-af4f-77dc5c149637)
+Also you can see here on AWS console.
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/27930627-f93c-4cab-bf10-22a591b14a25)
+Also as you can see here i have two instances here.
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/dd9a2884-ddbf-477d-b2a0-183961d440c1)
 
+Now apply load-balancer for this eks cluster.
+Use this command:
+Use this file `loadbalancer-service.yaml`
+```
+kubectl apply -f loadbalancer-service.yaml 
+```
 
+Output:
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/3cd770ee-047b-4b75-9efb-05bbf2b9c166)
+Also we can see on AWS console.
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/08be79c2-1a50-4cb5-a437-0bcf75adaed9)
+ 
 
 
 
