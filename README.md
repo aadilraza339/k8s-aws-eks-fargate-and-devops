@@ -26,9 +26,7 @@ Output:
 Now lets check our create pods with help of this command:
 
 ```
-    kubectl get all
-
-
+kubectl get all
 ```
 Output
 
@@ -42,7 +40,7 @@ I am going to delete this pod with the `specific` name.
 **Delete command**
 
 ```
-   kubectl delete pod <pod-name> | kubectl delete pod testdeploy-5f57f78888-6xxrn
+kubectl delete pod <pod-name> | kubectl delete pod testdeploy-5f57f78888-6xxrn
 ```
 Output
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/f122f40d-f661-4af6-9d2c-bca3667e2580)
@@ -57,13 +55,13 @@ Now we are going to delete this replica set. OK, so let's delete this replica se
 
 ### Get replica command:
 ```
-   kubectl get rs
+kubectl get rs
 ```
 Now delete the replica
 `Command`
 
 ```
-   kubectl delete rs testdeploy-5f57f78888
+kubectl delete rs testdeploy-5f57f78888
 ```
 
 Ouput:
@@ -179,6 +177,14 @@ Output:
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/018122cd-0221-4aca-9b03-0fd482ddc598)
 
 
+Now will delete my eks cluster and load-balancer.
+By command you can delete cluster.
+```
+eksctl delete cluster aadil-test
+
+```
+And to delete load-balance we can use aws console.
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/3b565180-8125-4c9c-a021-fcd31e33b770)
 
 
 
