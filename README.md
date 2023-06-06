@@ -106,6 +106,7 @@ The deployment doesn't bring it back because it doesn't manage anything.
 ### Now let's talk about services
 Let's start by looking at a life of a simple part.
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/a0f7d82a-70be-4847-a9a3-bdeb51d38332)
+</br>
 At this point, we know how to deploy pods with specific content and images. </br>
 **so let's say we have two nodes.**
 
