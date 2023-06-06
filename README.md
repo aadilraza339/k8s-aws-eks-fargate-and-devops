@@ -169,6 +169,14 @@ Output:
 Also we can see on AWS console.
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/08be79c2-1a50-4cb5-a437-0bcf75adaed9)
  
+Now with the help of DNS we can open our Nginx image thought load-balancer.
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/f0d75c28-9a3b-4290-a020-f86a8da02f5c)
+
+In my case this is my DNS, we can open it to our Nginx in browser
+`a3d22dfe7c01a444a809c7a02c8d2a86-1880745187.ap-south-1.elb.amazonaws.com`
+
+Output:
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/018122cd-0221-4aca-9b03-0fd482ddc598)
 
 
 
