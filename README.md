@@ -311,6 +311,7 @@ Check pods now
 
 Now will update the replica from `replicas: 1` to `replicas: 10`
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/72d556e4-d0fc-4913-982c-87647c961829)
+
 We can see here because of limit in the instance type in t3.micro we can't have more pods.
 
 
