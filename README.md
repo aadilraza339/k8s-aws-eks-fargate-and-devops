@@ -294,6 +294,43 @@ eksctl delete cluster eksctl-test-aadil
 
 Now again will create a cluster and will check the pods limit
 
+We can create a cluster with same above command.
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/d74bde73-adf6-4479-807e-47ac8cbc9773)
+
+Now we will create deployment using this yaml [file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/nginx-deployment.yaml)
+
+With one replica `replicas: 1`
+```
+kubectl apply -f nginx-deployment.yaml 
+```
+
+Check pods now
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/a30e68c1-e661-4b72-9ce0-032df6d04a8b)
+
+
+Now will update the replica from `replicas: 1` to `replicas: 10`
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/72d556e4-d0fc-4913-982c-87647c961829)
+We can see here because of limit in the instance type in t3.micro we can't have more pods.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
