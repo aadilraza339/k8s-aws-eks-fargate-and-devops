@@ -193,11 +193,106 @@ And to delete load-balance we can use aws console.
 
 
 
+# EKS basic
+
+### What is EKS
+
+**AWS Manages Kubernetes control Plan**
+
+- AWS maintain High Availability - Multiple EC2s in Multiple A-Zs
+- AWS detects and replaces Unhealthy Control plan instances
+- AWS Scales Control Plane
+- AWS maintain ETCD
+- Provides Automated version upgrade and patching
+- supports Native and Upstream Kubernetes
+- Integrated with AWS Ecosystem
+
+We have three type of EKS data plane
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/20b8b343-235c-46d5-831f-97b5b2a26f30)
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/68d272a1-32c0-4ebd-b34a-a229967ff8cc)
+
+### EKS in AWS Ecosystem
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/0c588e61-60d8-4b2b-a56e-8222bee65c60)
+
+### Ways to spin Up Cluster
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/1a4ccbdd-6a18-4d7e-9b7b-811df4938fcb)
+
+There is also one more to create EKS using **DevOps tools**, it is recommended for production environment.
+
+### What is eksctl?
+- CLI tool for creating clusters on EKS
+- Easier than console, for real!
+- Abstracts lots of stuff -VPC, Subnet, Sec, Group ect.
+
+### eksctl commands </br>
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/d3e85050-cb00-4f61-a9a0-a7c26476c293)
 
 
 
+### What is kubectl?
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/76070f2d-d357-438d-81d0-baca2a0aa8df)
+
+### kubectl command syntax
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/6a24facb-6b9f-44e7-959e-75188d3ba013)
+
+### Some are example here!
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/2963e899-3822-4597-a35b-ecac3bfa1074)
 
 
+# Demo Time
+- Spin up EkS cluster using eksctl
+- Use kubectl
+  - Deploy nginx using manifest file.
+  - Get resources info
+
+
+I am skipping the installation part; you can install it on your own.
+- Install kubectl
+- Install EksCtl
+### eksctl commands
+
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/a76dea6f-29f3-4365-b49e-0061cfdf8610)
+
+### Lets create out first cluster in eksctl CLI
+
+The command for creating eks cluster
+
+```
+eksctl create cluster --name eksctl-test-aadil --nodegroup-name ng-default --node-type t3.micro --nodes 2
+
+```
+It will take some to create eks cluster
+
+Output: </br>
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ecda5ff1-6ee9-417d-bc49-2df5ccbab9dd)
+
+Now will create node group for our created cluster using yaml file
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/1f462a0d-9bd0-4f1b-967a-2169e58c36f0)
+**Run command**
+[file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/eksctl-create-ng.yaml)
+```
+eksctl create nodegroup --config-file=eksctl-create-ng.yaml
+```
+Now we have three nodegroup, one is default when created clust by eksctl cli and two more now.
+![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/1ae788c8-d30c-4d20-b682-9de368f9baa6)
+
+Now we can delete the created cluster by using below command
+```
+eksctl delete cluster eksctl-test-aadil
+```
+
+
+### EC2 instance Type and Pod limit
+
+- Max number of allowed pods depends on EC2 instance type
+- Bigger the instance type, more pods
+
+Now again will create a cluster and will check the pods limit
 
 
 
