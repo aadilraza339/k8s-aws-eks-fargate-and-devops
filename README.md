@@ -1,7 +1,7 @@
 # Section 1
 
 In this section, we will execute Kubernetes commands to gain a better understanding of their functionality and purpose.
-
+### [Video](https://drive.google.com/file/d/1bB9ZnW6rBBFLEXap6u-hWZYbvefVy6Wf/view?usp=drive_link) for a better explanation
 ### Goal of this task
 - Implement Deployment
 - Delete some stuff!
