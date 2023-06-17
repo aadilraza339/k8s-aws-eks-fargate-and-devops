@@ -123,27 +123,12 @@ If the connections to this node fail, all the pods within it will also stop work
 When another node comes up, such as an Amazon instance, it will have a new IP address and new pods with different IP addresses.
 In this case, the Nginx pods won't know how to discover or reach the new pods.
 Another situation to consider is when these two pods are managed by a horizontal parlato scalar
-and it as a system that adds more pods to the node as traffic increases, and removes pods when traffic decreases.
+and it is a system that adds more pods to the node as traffic increases, and removes pods when traffic decreases.
 However, let's say this website pod somehow remains active while other pods go down.
 **What happens then?**
 
 Ideally, this pod should also direct traffic to the new pods, but it doesn't know how to find them because the Nginx pod was using the IP address of the previous pods.
 All of these problems can be solved by using a service
-### What is service?
-
-This is an abstract way to expose an application running on a set of pods as a network service.
-Service in Kubernetes provides a consistent network endpoint for a group of pods, allowing for load balancing, service discovery, and seamless scaling and updates.
-
-### How does it discover the pods and know that it has to manage it?
-![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/6b65a65c-ae62-4de4-a468-dd2291ed9c6f)
-So when you define a service. You have to give a level selector, so you basically have to say, hey, manage any pods where the same level
-The app is called Front End.
-
-Since this level matches, this service knows that, OK, I have to distribute the traffic to these.
-Also, this service keeps track of any new pod that comes up with this level and it automatically adds.
-
-### Now we create load balancer
-![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ba2a3c7a-ccf6-447a-b791-a06318de32cc)
 
 Before applying the load balancer, we need to ensure that the EKS cluster is up and running. To create a new EKS cluster, follow these steps
 
@@ -187,26 +172,26 @@ By command you can delete the cluster.
 eksctl delete cluster aadil-test
 
 ```
-And to delete load-balance we can use aws console.
+And to delete load-balance we can use AWS console.
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/3b565180-8125-4c9c-a021-fcd31e33b770)
 
 
-
-# EKS basic
+# Section 2
+### EKS basic
 
 ### What is EKS
 
 **AWS Manages Kubernetes control Plan**
 
-- AWS maintain High Availability - Multiple EC2s in Multiple A-Zs
+- AWS maintains High Availability - Multiple EC2s in Multiple A-Zs
 - AWS detects and replaces Unhealthy Control plan instances
 - AWS Scales Control Plane
-- AWS maintain ETCD
-- Provides Automated version upgrade and patching
+- AWS maintains ETCD
+- Provides Automated version upgrades and patching
 - supports Native and Upstream Kubernetes
 - Integrated with AWS Ecosystem
 
-We have three type of EKS data plane
+We have three types of EKS data plane
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/20b8b343-235c-46d5-831f-97b5b2a26f30)
 
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/68d272a1-32c0-4ebd-b34a-a229967ff8cc)
@@ -219,12 +204,12 @@ We have three type of EKS data plane
 
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/1a4ccbdd-6a18-4d7e-9b7b-811df4938fcb)
 
-There is also one more to create EKS using **DevOps tools**, it is recommended for production environment.
+There is also one more to create EKS using **DevOps tools**, it is recommended for the production environment.
 
 ### What is eksctl?
 - CLI tool for creating clusters on EKS
-- Easier than console, for real!
-- Abstracts lots of stuff -VPC, Subnet, Sec, Group ect.
+- Easier than a console, for real!
+- Abstracts lots of stuff -VPC, Subnet, Sec, Group etc.
 
 ### eksctl commands </br>
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/d3e85050-cb00-4f61-a9a0-a7c26476c293)
@@ -239,14 +224,14 @@ There is also one more to create EKS using **DevOps tools**, it is recommended f
 
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/6a24facb-6b9f-44e7-959e-75188d3ba013)
 
-### Some are example here!
+### Some are examples here!
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/2963e899-3822-4597-a35b-ecac3bfa1074)
 
 
 # Demo Time
 - Spin up EkS cluster using eksctl
 - Use kubectl
-  - Deploy nginx using manifest file.
+  - Deploy nginx using a manifest file.
   - Get resources info
 
 
@@ -257,7 +242,7 @@ I am skipping the installation part; you can install it on your own.
 
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/a76dea6f-29f3-4365-b49e-0061cfdf8610)
 
-### Lets create out first cluster in eksctl CLI
+### Let's create out first cluster in excel CLI
 
 The command for creating eks cluster
 
@@ -270,7 +255,7 @@ It will take some to create eks cluster
 Output: </br>
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ecda5ff1-6ee9-417d-bc49-2df5ccbab9dd)
 
-Now will create node group for our created cluster using yaml file
+Now will create a node group for our created cluster using yaml file
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/1f462a0d-9bd0-4f1b-967a-2169e58c36f0)
 **Run command**
 [file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/eksctl-create-ng.yaml)
