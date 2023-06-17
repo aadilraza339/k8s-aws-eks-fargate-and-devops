@@ -4,14 +4,24 @@
 - Delete some stuff!
 - Update the container image Via Deployment
 
-### My initial state
-Output:
 
+### Prerequisites
+- Clone `k8s-aws-eks-fargate-and-devops` [repository](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops.git)
+- Open your `Docker-Desktop` performance steps locally, if you don't have you can install them from this [link](https://github.com/aadilraza339/argocd-webapp#setting-up-pequiresties)
+
+### My initial state
+
+Will display information about all pods, services, deployments, and other resources in the current namespace.
+```
+kubectl get all
+``` 
 ![Screenshot from 2023-06-06 11-33-49](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/93b888d5-6948-4aa8-8c20-844f50a491b7)
 
-Let's create a deployment
+Deployment in Kubernetes provides a way to manage and maintain the desired state of your application, handle scaling, and enable updates and rollbacks in a controlled manner.
+### Let's create a deployment
 
-To create deployment we need to run our this [file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/nginx-deployment-withrolling.yaml) for deployment.
+To create deployment we need to run this `alb-ingress-controller.yaml` [file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/nginx-deployment-withrolling.yaml) for deployment.
+
 Output:
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ed4a7f0a-c026-4391-bfa7-2a2fdd8ac295)
 
@@ -81,7 +91,7 @@ So you have this new replica set, which has all three pods and the old one has n
 
 Remember before we tried to delete a replica set and it came back instantly. But now if I delete the old replica set with no pods running underneath it, should get deleted.
 
-So delete `old replica`
+So delete the `old replica`
 ```
 kubectl delete rs testdeploy-5f57f78888
 ```
@@ -90,8 +100,10 @@ Output
 
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/c5e351e4-1072-45c2-80ff-7b1aa2125db7)
 
-The deployment doesn't bring it back because it doesn't manage anything.
-
+Now let's check whether our Nginx image gets updated or not.
+```
+kubectl describe pods
+```
 
 ### Now let's talk about services
 Let's start by looking at a life of a simple part.
