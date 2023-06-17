@@ -23,7 +23,7 @@ kubectl get all
 Deployment in Kubernetes provides a way to manage and maintain the desired state of your application, handle scaling, and enable updates and rollbacks in a controlled manner.
 ### Let's create a deployment
 
-To create deployment we need to run this `alb-ingress-controller.yaml` [file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/nginx-deployment-withrolling.yaml) for deployment.
+To create deployment we need to run this `nginx-deployment-withrolling.yaml` [file](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/blob/main/nginx-deployment-withrolling.yaml) for deployment.
 
 Output:
 ![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/ed4a7f0a-c026-4391-bfa7-2a2fdd8ac295)
