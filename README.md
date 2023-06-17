@@ -1,16 +1,3 @@
-# Kubernetes basic
-
-
-### What is Kubernetes?
-
-Kubernetes is a powerful tool that helps organizations manage and control their containerized applications. It makes it easier to create, deploy, and expand these applications in cloud environments. With Kubernetes, businesses can easily scale their applications, make them more resilient, and manage them efficiently even when spread across multiple systems. In simple terms, it simplifies the process of running and maintaining container-based applications, allowing organizations to focus on building and delivering their services without worrying about the underlying infrastructure.
-
-### What are pods
-Pods are designed to be disposable and easily replaceable, making it convenient to scale applications horizontally by adding or removing pod instances. They provide a higher level of abstraction for managing containers, simplifying application deployment and management in a Kubernetes cluster.
-
-hierarchy
-Nodes->Pods->container
-![image](https://github.com/aadilraza339/k8s-aws-eks-fargate-and-devops/assets/47937273/cd0f11d5-4416-4b57-ba8d-3e37f6dcaac2)
 
 # Goal of this task
 - Implement Deployment
